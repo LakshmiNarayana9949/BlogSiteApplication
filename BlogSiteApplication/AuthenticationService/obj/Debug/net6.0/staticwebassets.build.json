@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "MWapZ6Nffp09T4RjgvVAWNsKqhgExaFLuX699T30tQc=",
+  "Source": "AuthenticationService",
+  "BasePath": "_content/AuthenticationService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\LN\\BlogSiteApplication\\blog-site-appliation\\BlogSiteApplication\\RegistrationServie\\RegistrationService.csproj",
+      "Version": 2,
+      "Source": "RegistrationService",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

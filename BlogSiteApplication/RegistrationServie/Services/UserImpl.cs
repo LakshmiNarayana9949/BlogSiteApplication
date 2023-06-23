@@ -1,4 +1,5 @@
 ﻿using RegistrationService.Models;
+
 namespace RegistrationService.Services
 {
     public class UserImpl : IUserInterface
@@ -6,6 +7,11 @@ namespace RegistrationService.Services
         public void AddUser(User user)
         {
 
+        }
+
+        public List<User> GetAllUsers()
+        {
+            throw new NotImplementedException();
         }
     }
 }
