@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationService", "Regi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{AB48B689-85BA-4DCC-A24B-B15768AD2137}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogService", "BlogService\BlogService.csproj", "{6285CD20-3E1E-4C0A-9385-44E58F38EC62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AB48B689-85BA-4DCC-A24B-B15768AD2137}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB48B689-85BA-4DCC-A24B-B15768AD2137}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB48B689-85BA-4DCC-A24B-B15768AD2137}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6285CD20-3E1E-4C0A-9385-44E58F38EC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6285CD20-3E1E-4C0A-9385-44E58F38EC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6285CD20-3E1E-4C0A-9385-44E58F38EC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6285CD20-3E1E-4C0A-9385-44E58F38EC62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

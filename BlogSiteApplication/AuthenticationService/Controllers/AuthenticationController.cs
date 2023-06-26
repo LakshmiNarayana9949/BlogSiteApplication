@@ -17,9 +17,10 @@ namespace AuthenticationService.Controllers
             _iUserInterface = iUserInterface;
             _iJWTTokenInterface = iJWTTokenInterface;
         }
-
+        [Route("Authenticate")]
+        [HttpPost]
         public IActionResult AuthenticateUser(User userFromUI)
-        {
+        {            
             if(validUser(userFromUI))
             {
                 User userFromDB = _iUserInterface.GetAllUsers().Where(a => a.UserName.ToLower() == userFromUI.UserName.ToLower() &&
@@ -35,8 +36,9 @@ namespace AuthenticationService.Controllers
 
         private bool validUser(User user) 
         {
+            return true;
             return _iUserInterface.GetAllUsers().Any(a => a.UserName.ToLower() == user.UserName.ToLower() && 
-                                                          a.Password.ToLower() == user.Password.ToLower());
+                                                          a.Password == user.Password);
         }
     }        
 }

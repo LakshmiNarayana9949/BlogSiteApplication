@@ -13,6 +13,8 @@ namespace RegistrationServie.Controllers
         {
             _iUserInterface = iUserInterface;
         }
+        [Route("Register")]
+        [HttpPost]
         public void AddUser(User user)
         {
             _iUserInterface.AddUser(user);
