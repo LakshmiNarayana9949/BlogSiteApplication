@@ -19,12 +19,12 @@ namespace AuthenticationService.Controllers
         }
         [Route("Authenticate")]
         [HttpPost]
-        public IActionResult AuthenticateUser(User userFromUI)
+        public IActionResult AuthenticateUser(LoginDetails loginDetails)
         {            
-            if(validUser(userFromUI))
+            if(validUser(loginDetails))
             {
-                User userFromDB = _iUserInterface.GetAllUsers().Where(a => a.UserName.ToLower() == userFromUI.UserName.ToLower() &&
-                                                          a.Password.ToLower() == userFromUI.Password.ToLower()).ToList()[0];
+                User userFromDB = _iUserInterface.GetAllUsers().Where(a => a.Email.ToLower() == loginDetails.Email.ToLower() &&
+                                                                      a.Password == loginDetails.Password).ToList()[0];
                 var token = _iJWTTokenInterface.GenerateToken(userFromDB);
                 return Ok(token);
             }
@@ -34,11 +34,10 @@ namespace AuthenticationService.Controllers
             }
         }
 
-        private bool validUser(User user) 
+        private bool validUser(LoginDetails loginDetails) 
         {
-            return true;
-            return _iUserInterface.GetAllUsers().Any(a => a.UserName.ToLower() == user.UserName.ToLower() && 
-                                                          a.Password == user.Password);
+            return _iUserInterface.GetAllUsers().Any(a => a.Email.ToLower() == loginDetails.Email.ToLower() && 
+                                                          a.Password == loginDetails.Password);
         }
     }        
 }
