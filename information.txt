@@ -1,0 +1,25 @@
+DB context file
+------------------
+public class UserDBContext : DbContext
+{
+	public UserDBContext(DbContextOptions<UserDBContext> options) : base(options)
+	{
+
+	}
+	public DbSet<User> Users { get; set; }
+}
+
+appsettings.json
+------------------
+"ConnectionStrings": {
+    "BlogSiteDB": "Server=0404C10EE8325B5;Database=BlogSite"
+  }
+  
+program.cs
+------------------
+builder.Services.AddDbContext<UserDBContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("BlogSiteDB")));
+
+Migration syntax for code first
+--------------------------------
+Scaffold-DBContext  "Server=0404C10EE8325B5;Database=BlogSite;Trusted_connection=True" Microsoft.EntityFrameworkCore.SqlServer;
+-OutputDir Migrations -Force
