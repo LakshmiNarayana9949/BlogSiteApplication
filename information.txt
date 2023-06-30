@@ -1,5 +1,5 @@
 DB context file
-------------------
+---------------------
 public class UserDBContext : DbContext
 {
 	public UserDBContext(DbContextOptions<UserDBContext> options) : base(options)
@@ -12,14 +12,15 @@ public class UserDBContext : DbContext
 appsettings.json
 ------------------
 "ConnectionStrings": {
-    "BlogSiteDB": "Server=0404C10EE8325B5;Database=BlogSite"
+    "BlogSiteDB": "Server=0404C10EE8325B5;Database=BlogSite;TrustServerCertificate=True; Integrated Security=SSPI;"
   }
   
 program.cs
 ------------------
 builder.Services.AddDbContext<UserDBContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("BlogSiteDB")));
 
-Migration syntax for code first
---------------------------------
-Scaffold-DBContext  "Server=0404C10EE8325B5;Database=BlogSite;Trusted_connection=True" Microsoft.EntityFrameworkCore.SqlServer;
--OutputDir Migrations -Force
+Migration syntax for code first approach
+----------------------------------------------
+1. Add-Migration Registrationservice.UserDBContext
+2. update-database
+after above two steps the database will creatae a table called Users with the column names similar to property names of User class.

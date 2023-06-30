@@ -15,9 +15,25 @@ namespace RegistrationServie.Controllers
         }
         [Route("Register")]
         [HttpPost]
-        public void AddUser(User user)
+        public ActionResult AddUser(User user)
         {
-            _iUserInterface.AddUser(user);
+            try
+            {
+                List<User> users = _iUserInterface.GetAllUsers();
+                if (users.Any(a => a.Email == user.Email || a.UserName == user.UserName))
+                {
+                    return Ok("Email or Username already exists.");
+                }
+                else
+                {
+                    _iUserInterface.AddUser(user);
+                    return Ok("User registered successfully");
+                }
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
