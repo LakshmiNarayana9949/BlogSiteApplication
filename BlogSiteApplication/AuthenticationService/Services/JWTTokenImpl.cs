@@ -1,16 +1,16 @@
-﻿using RegistrationService.Models;
-using AuthenticationService.Models;
+﻿using AuthenticationService.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
+using RegistrationService.Models;
 
 namespace AuthenticationService.Services
 {
     public class JWTTokenImpl : IJWTTokenInterface
     {
-        private readonly IConfiguration _configuration;     
+        private readonly IConfiguration _configuration;
         public JWTTokenImpl(IConfiguration configuration)
         {
             _configuration = configuration;

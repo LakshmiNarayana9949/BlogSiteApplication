@@ -24,3 +24,7 @@ Migration syntax for code first approach
 1. Add-Migration Registrationservice.UserDBContext
 2. update-database
 after above two steps the database will creatae a table called Users with the column names similar to property names of User class.
+
+How to access DB set
+-----------------------
+Inject the class which is inherited from DbContext class in the class file which is implemented by interface.
