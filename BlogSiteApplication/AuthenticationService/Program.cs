@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore.Design;
 using AuthenticationService.Services;
 using RegistrationService.Services;
+using RegistrationService.DBContext;
+using AuthenticationService.DBContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IJWTTokenInterface, JWTTokenImpl>();
-//builder.Services.AddTransient<IUserInterface, UserImpl>();
+//builder.Services.AddScoped<IUserInterface, UserImpl>();
+
+builder.Services.AddDbContext<AuthenticationDBContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("BlogSiteDB")));
 
 var app = builder.Build();
 

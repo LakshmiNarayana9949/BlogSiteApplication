@@ -4,6 +4,7 @@ namespace AuthenticationService.Services
 {
     public interface IJWTTokenInterface
     {
-        public Token GenerateToken(User user);        
+        public Token GenerateToken(User user);
+        public List<User> GetAllUsers();
     }
 }

@@ -5,20 +5,23 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using RegistrationService.Models;
+using AuthenticationService.DBContext;
 
 namespace AuthenticationService.Services
 {
     public class JWTTokenImpl : IJWTTokenInterface
     {
         private readonly IConfiguration _configuration;
-        public JWTTokenImpl(IConfiguration configuration)
+        private readonly AuthenticationDBContext _authenticationDBContext;
+        public JWTTokenImpl(IConfiguration configuration, AuthenticationDBContext authenticationDBContext)
         {
             _configuration = configuration;
+            _authenticationDBContext = authenticationDBContext;
         }
         public Token GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenKey = Encoding.UTF8.GetBytes(_configuration["JWT: Key"]);
+            var tokenKey = Encoding.UTF8.GetBytes(_configuration["JWT:Key"].ToString());
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[] { new Claim(ClaimTypes.Name, user.Email) }),
@@ -26,7 +29,12 @@ namespace AuthenticationService.Services
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return new Token { RefreshToken = tokenHandler.WriteToken(token)};
+            return new Token { RefreshToken = tokenHandler.WriteToken(token), UserId = user.Id};
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return _authenticationDBContext.Users.ToList();
         }
     }
 }
