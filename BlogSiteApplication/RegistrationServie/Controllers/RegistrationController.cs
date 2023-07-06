@@ -22,12 +22,12 @@ namespace RegistrationServie.Controllers
                 List<User> users = _iUserInterface.GetAllUsers();
                 if (users.Any(a => a.Email == user.Email || a.UserName == user.UserName))
                 {
-                    return Ok("Email or Username already exists.");
+                    return Ok(false);
                 }
                 else
                 {
                     _iUserInterface.AddUser(user);
-                    return Ok("User registered successfully");
+                    return Ok(true);
                 }
             }
             catch(Exception ex)
