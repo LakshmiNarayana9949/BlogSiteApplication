@@ -29,7 +29,7 @@ namespace AuthenticationService.Services
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return new Token { RefreshToken = tokenHandler.WriteToken(token), UserId = user.Id};
+            return new Token { RefreshToken = tokenHandler.WriteToken(token), UserId = user.Id, UserName = user.UserName};
         }
 
         public List<User> GetAllUsers()

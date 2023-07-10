@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using BlogService.Models;
 using BlogService.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogService.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class BlogController : ControllerBase
     {
@@ -13,7 +15,7 @@ namespace BlogService.Controllers
         {
             _iBlogInterface = iBlogInterface;
         }
-
+        
         [HttpPost]
         public ActionResult AddNewBlog(Blog blog) 
         {
