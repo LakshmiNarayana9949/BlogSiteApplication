@@ -1,16 +1,24 @@
-﻿using BlogService.Models;
+﻿using BlogService.DBContext;
+using BlogService.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace BlogService.Services
-{
+{    
     public class BlogImpl : IBlogInterface
     {
-        public ActionResult AddNewBlog(Blog blog)
+        private readonly BlogDBContext _blogDbContext;
+        public BlogImpl(BlogDBContext blogDbContext)
         {
-            throw new NotImplementedException();
+            _blogDbContext = blogDbContext;
+        }
+        public void AddNewBlog(Blog blog)
+        {
+            _blogDbContext.Add(blog);
+            save();            
         }
 
-        public ActionResult DeleteBlogById(int id)
+        public void DeleteBlogById(int id)
         {
             throw new NotImplementedException();
         }
@@ -23,6 +31,11 @@ namespace BlogService.Services
         public Blog GetBlogById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        private void save()
+        {
+            _blogDbContext.SaveChanges();
         }
     }
 }

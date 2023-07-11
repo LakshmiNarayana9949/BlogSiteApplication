@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace BlogService.Controllers
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     public class BlogController : ControllerBase
     {
@@ -17,6 +17,7 @@ namespace BlogService.Controllers
         }
         
         [HttpPost]
+        [Route("AddNewBlog")]
         public ActionResult AddNewBlog(Blog blog) 
         {
             _iBlogInterface.AddNewBlog(blog);
@@ -24,6 +25,7 @@ namespace BlogService.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllBlogs")]
         public ActionResult GetAllBlogs()
         {
             List<Blog> blogs = _iBlogInterface.GetAllBlogs();
@@ -31,6 +33,7 @@ namespace BlogService.Controllers
         }
 
         [HttpGet]
+        [Route("GetBlogsByUserId")]
         public ActionResult GetBlogsByUserId(int userId) 
         {
             List<Blog> blogs = _iBlogInterface.GetAllBlogs().Where(a => a.CreatedBy == userId).ToList();
@@ -38,6 +41,7 @@ namespace BlogService.Controllers
         }
 
         [HttpGet]
+        [Route("GetBlogsByCategory")]
         public ActionResult GetBlogsByCategory(string category)
         {
             List<Blog> blogs = _iBlogInterface.GetAllBlogs().Where(a => 
@@ -46,6 +50,7 @@ namespace BlogService.Controllers
         }
 
         [HttpGet]
+        [Route("GetBlogById")]
         public ActionResult GetBlogById(int id)
         {
             Blog blog = _iBlogInterface.GetAllBlogs().Where(a =>
@@ -54,6 +59,7 @@ namespace BlogService.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         public ActionResult DeleteBlogById(int id)
         {
             return Ok("Blog deleted successfully");
