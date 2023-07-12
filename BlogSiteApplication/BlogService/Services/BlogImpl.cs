@@ -25,7 +25,7 @@ namespace BlogService.Services
 
         public List<Blog> GetAllBlogs()
         {
-            throw new NotImplementedException();
+            return _blogDbContext.Blogs.ToList();
         }
 
         public Blog GetBlogById(int id)
