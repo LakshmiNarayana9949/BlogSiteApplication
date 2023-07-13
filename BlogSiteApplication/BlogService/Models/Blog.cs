@@ -6,6 +6,7 @@
         public string BlogName { get; set; }
         public string Category { get; set; }
         public string Article { get; set; }
+        public bool Active { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
     }

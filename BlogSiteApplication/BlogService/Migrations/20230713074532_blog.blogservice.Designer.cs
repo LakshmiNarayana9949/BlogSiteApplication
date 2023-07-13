@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogService.Migrations
 {
     [DbContext(typeof(BlogDBContext))]
-    [Migration("20230711081519_blogsrvice.blogdbcontext")]
-    partial class blogsrviceblogdbcontext
+    [Migration("20230713074532_blog.blogservice")]
+    partial class blogblogservice
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace BlogService.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Article")
                         .IsRequired()

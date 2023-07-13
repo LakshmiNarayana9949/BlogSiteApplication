@@ -30,6 +30,9 @@ namespace BlogService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Article")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

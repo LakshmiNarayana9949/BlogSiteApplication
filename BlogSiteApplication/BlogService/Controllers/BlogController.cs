@@ -20,16 +20,27 @@ namespace BlogService.Controllers
         [Route("AddNewBlog")]
         public ActionResult AddNewBlog(Blog blog) 
         {
+            blog.Active = true;
             _iBlogInterface.AddNewBlog(blog);
             return Ok("Blog added Successfully");
         }
 
-        [HttpGet]
-        [Route("GetAllBlogs")]
-        public ActionResult GetAllBlogs()
+        [HttpDelete]
+        [Route("DeleteBlogById")]
+        public ActionResult DeleteBlogById(int id)
         {
-            List<Blog> blogs = _iBlogInterface.GetAllBlogs();
-            return Ok(blogs);
+            Blog blog = GetBlogById(id);
+            _iBlogInterface.DeleteBlogById(blog);
+            return Ok("Blog deleted successfully");
+        }
+
+        [HttpGet]
+        [Route("GetBlogById")]
+        public Blog GetBlogById(int id)
+        {
+            Blog blog = _iBlogInterface.GetAllBlogs().Where(a =>
+                                                a.Id == id).ToList()[0];
+            return blog;
         }
 
         [HttpGet]
@@ -41,28 +52,12 @@ namespace BlogService.Controllers
         }
 
         [HttpGet]
-        [Route("GetBlogsByCategory")]
-        public ActionResult GetBlogsByCategory(string category)
+        [Route("GetBlogsBySearch")]
+        public ActionResult GetBlogsBySearch(int userId, string category)
         {
             List<Blog> blogs = _iBlogInterface.GetAllBlogs().Where(a => 
-                                                a.Category.ToLower() == category.ToLower()).ToList();
+                                                a.Category.ToLower() == category.ToLower() && a.CreatedBy == userId).ToList();
             return Ok(blogs);
-        }
-
-        [HttpGet]
-        [Route("GetBlogById")]
-        public ActionResult GetBlogById(int id)
-        {
-            Blog blog = _iBlogInterface.GetAllBlogs().Where(a =>
-                                                a.Id == id).ToList()[0];
-            return Ok(blog);
-        }
-
-        [HttpDelete]
-        [Route("Delete")]
-        public ActionResult DeleteBlogById(int id)
-        {
-            return Ok("Blog deleted successfully");
-        }
+        }              
     }
 }

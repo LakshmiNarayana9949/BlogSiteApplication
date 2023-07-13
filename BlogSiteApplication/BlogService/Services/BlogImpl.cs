@@ -1,6 +1,7 @@
 ﻿using BlogService.DBContext;
 using BlogService.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace BlogService.Services
@@ -18,19 +19,16 @@ namespace BlogService.Services
             save();            
         }
 
-        public void DeleteBlogById(int id)
+        public void DeleteBlogById(Blog blog)
         {
-            throw new NotImplementedException();
+            blog.Active = false;
+            _blogDbContext.Entry(blog).State = EntityState.Modified;
+            save();
         }
 
         public List<Blog> GetAllBlogs()
         {
-            return _blogDbContext.Blogs.ToList();
-        }
-
-        public Blog GetBlogById(int id)
-        {
-            throw new NotImplementedException();
+            return _blogDbContext.Blogs.ToList().Where(a => a.Active == true).ToList();
         }
 
         private void save()
