@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "KNFgK4Zh/S8UDaYapDrc0wuV3PX3YsscYoRVX3+ci6w=",
+  "Hash": "w4VsM75VTRT90tnRA7CaMN+FtyAcLAbkgI8XQ1TY/ts=",
   "Source": "BlogService",
   "BasePath": "_content/BlogService",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\LN\\BlogSiteApplication\\blog-site-appliation\\BlogSiteApplication\\RegistrationServie\\RegistrationService.csproj",
+      "Version": 2,
+      "Source": "RegistrationService",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }

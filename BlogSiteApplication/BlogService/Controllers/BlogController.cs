@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using BlogService.Models;
 using BlogService.Services;
 using Microsoft.AspNetCore.Authorization;
+using RegistrationService.Models;
 
 namespace BlogService.Controllers
 {
@@ -48,15 +49,17 @@ namespace BlogService.Controllers
         public ActionResult GetBlogsByUserId(int userId) 
         {
             List<Blog> blogs = _iBlogInterface.GetAllBlogs().Where(a => a.CreatedBy == userId).ToList();
+            
             return Ok(blogs);
         }
 
         [HttpGet]
         [Route("GetBlogsBySearch")]
-        public ActionResult GetBlogsBySearch(int userId, string category)
+        public ActionResult GetBlogsBySearch(int userId, string category, DateTime fromdate, DateTime todate)
         {
-            List<Blog> blogs = _iBlogInterface.GetAllBlogs().Where(a => 
-                                                a.Category.ToLower() == category.ToLower() && a.CreatedBy == userId).ToList();
+            List<Blog> blogs = _iBlogInterface.GetAllBlogs().Where(a => a.CreatedBy == userId &&
+                                                                   a.Category.ToLower().Contains(category.ToLower()) && 
+                                                                   fromdate <= a.CreatedOn && a.CreatedOn <= todate).ToList();
             return Ok(blogs);
         }              
     }

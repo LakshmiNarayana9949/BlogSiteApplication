@@ -1230,6 +1230,24 @@
             "rid": "win"
           }
         }
+      },
+      "RegistrationService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
+          "Swashbuckle.AspNetCore": "6.2.3"
+        },
+        "compile": {
+          "bin/placeholder/RegistrationService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RegistrationService.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -3675,6 +3693,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "RegistrationService/1.0.0": {
+      "type": "project",
+      "path": "../RegistrationServie/RegistrationService.csproj",
+      "msbuildProject": "../RegistrationServie/RegistrationService.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3682,6 +3705,7 @@
       "Microsoft.EntityFrameworkCore >= 7.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.8",
+      "RegistrationService >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -3717,7 +3741,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\LN\\BlogSiteApplication\\blog-site-appliation\\BlogSiteApplication\\RegistrationServie\\RegistrationService.csproj": {
+              "projectPath": "D:\\LN\\BlogSiteApplication\\blog-site-appliation\\BlogSiteApplication\\RegistrationServie\\RegistrationService.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

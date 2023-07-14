@@ -1,5 +1,6 @@
 ﻿using BlogService.Models;
 using Microsoft.EntityFrameworkCore;
+using RegistrationService.Models;
 
 namespace BlogService.DBContext
 {
@@ -10,5 +11,6 @@ namespace BlogService.DBContext
 
         }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
