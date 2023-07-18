@@ -5,5 +5,6 @@
         public string RefreshToken { get; set; }
         public int UserId { get; set; }  
         public string UserName { get; set; }
+        public int UserType { get; set; }
     }
 }
