@@ -55,6 +55,7 @@ namespace BlogService.Controllers
                             article = b.Article,
                             createdBy = b.CreatedBy,
                             author = u.UserName,
+                            email = u.Email,
                             createdOn = b.CreatedOn
                         }).ToList()[0];
             return Ok(blog);
