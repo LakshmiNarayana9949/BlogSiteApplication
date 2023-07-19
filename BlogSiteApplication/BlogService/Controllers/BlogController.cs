@@ -4,6 +4,7 @@ using BlogService.Services;
 using BlogService.DBContext;
 using Microsoft.AspNetCore.Authorization;
 using RegistrationService.Models;
+using System.Linq;
 
 namespace BlogService.Controllers
 {
@@ -75,7 +76,7 @@ namespace BlogService.Controllers
                                      article = b.Article,
                                      createdBy = b.CreatedBy,
                                      author = u.UserName,
-                             createdOn = b.CreatedOn}).ToList();
+                             createdOn = b.CreatedOn}).ToList().OrderByDescending(a => a.createdOn).ToList();
             return Ok(blogs);
         }
 
@@ -98,7 +99,7 @@ namespace BlogService.Controllers
                              createdBy = b.CreatedBy,
                              author = u.UserName,
                              createdOn = b.CreatedOn
-                         }).ToList();
+                         }).ToList().OrderByDescending(a => a.createdOn).ToList(); ;
             return Ok(blogs);
         }              
     }
