@@ -28,3 +28,30 @@ after above two steps the database will creatae a table called Users with the co
 How to access DB set
 -----------------------
 Inject the class which is inherited from DbContext class in the class file which is implemented by interface.
+
+How to allow only authorized access
+------------------------------------------------
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = "TestKey";
+    x.DefaultChallengeScheme = "TestKey";
+}).AddJwtBearer("TestKey", o =>
+{
+    var key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);
+    o.SaveToken = true;
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    };
+});
+
+app.UseAuthentication();
+app.UseAuthorization();

@@ -8,8 +8,7 @@ using System.Linq;
 
 namespace BlogService.Controllers
 {
-    [ApiController]
-    //[Authorize]
+    [ApiController]    
     [Route("[controller]")]
     public class BlogController : ControllerBase
     {
@@ -20,7 +19,8 @@ namespace BlogService.Controllers
             _iBlogInterface = iBlogInterface;
             _blogDBContext = blogDBContext;
         }
-        
+
+        [Authorize]
         [HttpPost]
         [Route("AddNewBlog")]
         public ActionResult AddNewBlog(Blog blog) 
@@ -30,6 +30,7 @@ namespace BlogService.Controllers
             return Ok("Blog added Successfully");
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("DeleteBlogById")]
         public ActionResult DeleteBlogById(int id)
@@ -39,6 +40,7 @@ namespace BlogService.Controllers
             return Ok("Blog deleted successfully");
         }
 
+        [Authorize]
         [HttpGet]
         [Route("GetBlogById")]
         public ActionResult GetBlogById(int id)
@@ -62,6 +64,7 @@ namespace BlogService.Controllers
             return Ok(blog);
         }
 
+        [Authorize]
         [HttpGet]
         [Route("GetBlogsByUserId")]
         public ActionResult GetBlogsByUserId(int userId) 
@@ -80,6 +83,7 @@ namespace BlogService.Controllers
             return Ok(blogs);
         }
 
+        [Authorize]
         [HttpGet]
         [Route("GetBlogsBySearch")]
         public ActionResult GetBlogsBySearch(int userId, string category, DateTime fromdate, DateTime todate)

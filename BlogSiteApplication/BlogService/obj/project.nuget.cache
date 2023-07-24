@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "+DkRpdiyAYlaLiWf7/7buU1lg2Nb+pMLY/BEo27ury9fZGWW+80T3AS7yXi/V3Rdom6oHrEX6NNMdo2rXzn3EA==",
+  "dgSpecHash": "GRfL5oAVRl8aejWPXMMbxZ6nUx25u40i4+3Vfq8uli1FXoDZ3RjYtpe75CPqZ0fNs08IhgGS9iHaZ+fogw1pdw==",
   "success": true,
   "projectFilePath": "D:\\LN\\BlogSiteApplication\\blog-site-appliation\\BlogSiteApplication\\BlogService\\BlogService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.20\\microsoft.aspnetcore.authentication.jwtbearer.6.0.20.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",

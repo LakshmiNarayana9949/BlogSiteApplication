@@ -90,3 +90,4 @@ D:\LN\BlogSiteApplication\blog-site-appliation\BlogSiteApplication\BlogService\b
 D:\LN\BlogSiteApplication\blog-site-appliation\BlogSiteApplication\BlogService\bin\Debug\net6.0\RegistrationService.exe
 D:\LN\BlogSiteApplication\blog-site-appliation\BlogSiteApplication\BlogService\bin\Debug\net6.0\RegistrationService.dll
 D:\LN\BlogSiteApplication\blog-site-appliation\BlogSiteApplication\BlogService\bin\Debug\net6.0\RegistrationService.pdb
+D:\LN\BlogSiteApplication\blog-site-appliation\BlogSiteApplication\BlogService\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
