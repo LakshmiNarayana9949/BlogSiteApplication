@@ -33,11 +33,18 @@ namespace BlogService.Controllers
         [Authorize]
         [HttpDelete]
         [Route("DeleteBlogById")]
-        public ActionResult DeleteBlogById(int id)
+        public ActionResult DeleteBlogById(int id, int userId)
         {
             Blog blog = _iBlogInterface.GetAllBlogs().Where(a => a.Id == id).ToList()[0];
-            _iBlogInterface.DeleteBlogById(blog);
-            return Ok("Blog deleted successfully");
+            if (blog.CreatedBy == userId)
+            {
+                _iBlogInterface.DeleteBlogById(blog);
+                return Ok("Blog deleted successfully");
+            }
+            else
+            {
+                return Ok("You can not delete this Blog as this is not created by you.");
+            }
         }
 
         [Authorize]
