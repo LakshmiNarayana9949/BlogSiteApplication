@@ -97,7 +97,7 @@ namespace BlogService.Controllers
         {
             List<Blog> blogsWithOutDetails = _iBlogInterface.GetAllBlogs().Where(a => (a.CreatedBy == userId || a.CreatedBy == 1) &&
                                                                    a.Category.ToLower().Contains(category.ToLower()) && 
-                                                                   fromdate <= a.CreatedOn && a.CreatedOn <= todate).ToList();
+                                                                   fromdate.Date <= a.CreatedOn.Date && a.CreatedOn.Date <= todate.Date).ToList();
             var blogs = (from b in blogsWithOutDetails
                          join u in _blogDBContext.Users
                          on b.CreatedBy equals u.Id
